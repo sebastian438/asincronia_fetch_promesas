@@ -62,25 +62,48 @@
 //EJERCICIO 04
 
 
-const urlBase04 = "https://dog.ceo/api/breed";
-// const raza = "komondor"
+// const urlBase04 = "https://dog.ceo/api/breed";
+// // const raza = "komondor"
 
-const getAllImagesByBreed2 = async (breed) => {
+// const getAllImagesByBreed2 = async (breed) => {
 
+//     try {
+//         const response = await fetch(`${urlBase04}/${breed}/images`);
+//         let data;
+//         if (response.ok) {
+//             data = await response.json();
+//             let listaRazas = data.message;
+//             return listaRazas;
+//         } else {
+//             throw ("Error en la data")
+//         }
+//     } catch (error) {
+//         throw error;
+//     }
+
+// }
+
+
+//EJERCICIO 05
+
+const urlBase05 = "https://api.github.com/users"
+
+const getGitHubUserProfile = async (username) => {
     try {
-        const response = await fetch(`${urlBase04}/${breed}/images`);
+        const response = await fetch(`${urlBase05}/${username}`);
         let data;
         if (response.ok) {
             data = await response.json();
-            let listaRazas = data.message;
-            return listaRazas;
+            return data;
         } else {
-            throw ("Error en la data")
+            throw ("Error de la data");
         }
     } catch (error) {
         throw error;
     }
-
 }
+
+
+
 
 
