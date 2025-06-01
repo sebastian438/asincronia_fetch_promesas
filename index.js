@@ -20,14 +20,40 @@
 
 //EJERCIO 02
 
-const getRandomDog = async () => {
-    const response = await fetch("https://dog.ceo/api/breeds/image/random");
+// const getRandomDog = async () => {
+//     const response = await fetch("https://dog.ceo/api/breeds/image/random");
 
-    let data;
-    if (response.ok) {
-        data = await response.json();
-        let imagen = data.message;
-        return imagen;
+//     let data;
+//     if (response.ok) {
+//         data = await response.json();
+//         let imagen = data.message;
+//         return imagen;
+//     }
+// }
+
+
+
+//EJERCICIO 03
+
+const urlBase03 = "https://dog.ceo/api/breed";
+const raza = "komondor"
+
+const getAllImagesByBreed = async () => {
+
+    try {
+        const response = await fetch(`${urlBase03}/${raza}/images`);
+        let data;
+        if (response.ok) {
+            data = await response.json();
+            let listaRazas = data.message;
+            return listaRazas;
+        } else {
+            throw ("Error en la data")
+        }
+    } catch (error) {
+        throw error;
     }
+
 }
 
+getAllImagesByBreed();
