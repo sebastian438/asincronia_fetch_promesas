@@ -35,13 +35,40 @@
 
 //EJERCICIO 03
 
-const urlBase03 = "https://dog.ceo/api/breed";
-const raza = "komondor"
+// const urlBase03 = "https://dog.ceo/api/breed";
+// const raza = "komondor"
 
-const getAllImagesByBreed = async () => {
+// const getAllImagesByBreed = async () => {
+
+//     try {
+//         const response = await fetch(`${urlBase03}/${raza}/images`);
+//         let data;
+//         if (response.ok) {
+//             data = await response.json();
+//             let listaRazas = data.message;
+//             return listaRazas;
+//         } else {
+//             throw ("Error en la data")
+//         }
+//     } catch (error) {
+//         throw error;
+//     }
+
+// }
+
+// getAllImagesByBreed();
+
+
+//EJERCICIO 04
+
+
+const urlBase04 = "https://dog.ceo/api/breed";
+// const raza = "komondor"
+
+const getAllImagesByBreed2 = async (breed) => {
 
     try {
-        const response = await fetch(`${urlBase03}/${raza}/images`);
+        const response = await fetch(`${urlBase04}/${breed}/images`);
         let data;
         if (response.ok) {
             data = await response.json();
@@ -56,4 +83,4 @@ const getAllImagesByBreed = async () => {
 
 }
 
-getAllImagesByBreed();
+
