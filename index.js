@@ -86,20 +86,44 @@
 
 //EJERCICIO 05
 
-const urlBase05 = "https://api.github.com/users"
+// const urlBase05 = "https://api.github.com/users"
 
-const getGitHubUserProfile = async (username) => {
+// const getGitHubUserProfile = async (username) => {
+//     try {
+//         const response = await fetch(`${urlBase05}/${username}`);
+//         let data;
+//         if (response.ok) {
+//             data = await response.json();
+//             return data;
+//         } else {
+//             throw ("Error de la data");
+//         }
+//     } catch (error) {
+//         throw error;
+//     }
+// }
+
+
+//EJERCICIO 06
+
+const urlBase06 = "https://api.github.com/users"
+
+const printGithubUserProfile = async (username) => {
     try {
-        const response = await fetch(`${urlBase05}/${username}`);
+        const response = await fetch(`${urlBase06}/${username}`);
         let data;
+        let name;
+        let img;
         if (response.ok) {
             data = await response.json();
-            return data;
+            img = data.avatar_url;
+            name = data.name;
+            return { img, name };
         } else {
             throw ("Error de la data");
         }
     } catch (error) {
-        throw error;
+
     }
 }
 
