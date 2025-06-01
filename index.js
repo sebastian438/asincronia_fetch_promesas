@@ -106,24 +106,50 @@
 
 //EJERCICIO 06
 
-const urlBase06 = "https://api.github.com/users"
+// const urlBase06 = "https://api.github.com/users"
 
-const printGithubUserProfile = async (username) => {
+// const printGithubUserProfile = async (username) => {
+//     try {
+//         const response = await fetch(`${urlBase06}/${username}`);
+//         let data;
+//         let name;
+//         let img;
+//         if (response.ok) {
+//             data = await response.json();
+//             img = data.avatar_url;
+//             name = data.name;
+//             return { img, name };
+//         } else {
+//             throw ("Error de la data");
+//         }
+//     } catch (error) {
+
+//     }
+// }
+
+
+//EJERCICIO 07
+
+const urlBase07 = "https://api.github.com/users";
+
+const getAndPrintGitHubUserProfile = async (username) => {
     try {
-        const response = await fetch(`${urlBase06}/${username}`);
+        const response = await fetch(`${urlBase07}/${username}`);
         let data;
         let name;
-        let img;
+        let numberReposPublic;
+        let imgUser;
         if (response.ok) {
             data = await response.json();
-            img = data.avatar_url;
             name = data.name;
-            return { img, name };
+            numberReposPublic = data.public_repos;
+            imgUser = data.avatar_url;
+            return `<section><img src="${imgUser}" alt="${name}"><h1>${name}</h1><p>Public repos: ${numberReposPublic}</p></section>`;
         } else {
-            throw ("Error de la data");
+            throw ("Error en la date");
         }
     } catch (error) {
-
+        throw error;
     }
 }
 
